@@ -5,4 +5,9 @@ def display_menu():
     print("3. View sessions")
     print("4. Search sessions")
     print("5. Save and Exit")
-display_menu()
+
+
+def main():
+    while True:
+        display_menu()
+main()
