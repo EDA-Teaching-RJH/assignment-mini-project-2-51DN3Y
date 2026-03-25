@@ -19,13 +19,11 @@ class TrainingLog:
         return self.sessions
     
     def save_to_csv(self, training_results):
-        file = open(training_results, "w")
-        writer = csv.writer(file)
+        with open(training_results, "w", newline='') as file:
+            writer = csv.writer(file)
 
-        for session in self.sessions:
-            writer.writerow([session.date, session.distance, session.time, session.notes])
-
-        file.close()
+            for session in self.sessions:
+                writer.writerow([session.date, session.distance, session.time, session.notes])
     
     def search_sessions(self, keyword):
         pattern = re.compile(re.escape(keyword), re.IGNORECASE)
