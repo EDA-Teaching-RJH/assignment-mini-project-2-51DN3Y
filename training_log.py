@@ -7,3 +7,10 @@ class Session:
         self.distance = distance
         self.time = time
         self.notes = notes
+
+class TrainingLog:
+    def __init__(self):
+        self.sessions = []
+    
+    def add_session(self, session):
+        self.sessions.append(session)
