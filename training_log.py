@@ -8,6 +8,12 @@ class Session:
         self.time = time
         self.notes = notes
 
+    def get_pace(self):
+        minutes, seconds = map(int, self.time.split(":"))
+        total_minutes = minutes + seconds /60
+        pace = total_minutes / self.distance
+        return round(pace, 2)
+
 class TrainingLog:
     def __init__(self):
         self.sessions = []
