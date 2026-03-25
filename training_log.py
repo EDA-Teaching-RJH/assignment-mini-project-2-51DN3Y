@@ -13,6 +13,12 @@ class Session:
         total_minutes = minutes + seconds /60
         pace = total_minutes / self.distance
         return round(pace, 2)
+    
+    def to_list(self):
+        return [self.date, self.distance, self.time, self.notes]
+    
+    def __str__(self):
+        return f"Date: {self.date}, Distance: {self.distance} km, Time: {self.time}, Notes: {self.notes}, Pace: {self.get_pace()} min/km"
 
 class TrainingLog:
     def __init__(self):
