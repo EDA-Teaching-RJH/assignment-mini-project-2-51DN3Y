@@ -52,6 +52,7 @@ class TrainingLog:
     
     def load_from_csv(self, training_results):
         try:
+            self.sessions = []
             with open(training_results, "r") as file:
                 reader = csv.reader(file)
                 for row in reader:
