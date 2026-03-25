@@ -27,6 +27,10 @@ class TrainingLog:
     def add_session(self, session):
         self.sessions.append(session)
 
+    def remove_session(self, index):
+        if 0 <= index < len(self.sessions):
+            self.sessions.pop(index)
+
     def get_all_sessions(self):
         return self.sessions
     
