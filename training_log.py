@@ -27,4 +27,12 @@ class TrainingLog:
             writer.writerow([session.date, session.distance, session.time, session.notes])
 
         file.close()
+    
+    def search_sessions(self, keyword):
+        results = []
+        
+        for session in self.sessions:
+            if keyword.lower() in session.notes.lower():
+                results.append(session)
 
+        return results
