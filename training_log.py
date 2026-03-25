@@ -4,7 +4,7 @@ import re
 class Session:
     def __init__ (self, date, distance, time, notes):
         self.date = date
-        self.distance = distance
+        self.distance = float(distance)
         self.time = time
         self.notes = notes
 
@@ -48,7 +48,6 @@ class TrainingLog:
         for session in self.sessions:
             if pattern.search(session.notes or ""):
                 results.append(session)
-
         return results
     
     def load_from_csv(self, training_results):
