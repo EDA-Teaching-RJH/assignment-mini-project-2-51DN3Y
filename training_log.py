@@ -29,10 +29,11 @@ class TrainingLog:
         file.close()
     
     def search_sessions(self, keyword):
+        pattern = re.compile(re.escape(keyword), re.IGNORECASE)
         results = []
         
         for session in self.sessions:
-            if keyword.lower() in session.notes.lower():
+            if pattern.search(session.notes):
                 results.append(session)
 
         return results
