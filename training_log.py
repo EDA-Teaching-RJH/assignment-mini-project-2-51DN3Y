@@ -1,6 +1,5 @@
 import csv
 import re
-from turtle import write
 
 class Session:
     def __init__ (self, date, distance, time, notes):
