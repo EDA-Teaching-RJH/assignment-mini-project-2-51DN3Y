@@ -13,7 +13,7 @@ def display_menu():
 def main():
     log = TrainingLog()
     log.load_from_csv("training_results.csv")
-
+    
     filename = "training_results.csv"
     if len(sys.argv) > 1:
         filename = sys.argv[1]
