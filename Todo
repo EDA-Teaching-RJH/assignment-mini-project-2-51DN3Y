@@ -1,4 +1,5 @@
 Implement arguments
 Create basic test file to demonstrate testing code
+Clean main() function; put the 3 peices of validation into separate functions
 Comments and Docstings (Last)
 Check code, pass through testing etc
