@@ -59,8 +59,11 @@ class TrainingLog:
 
                 for row in reader:
                     if len(row) == 4:
-                        session = Session(row[0], row[1], row[2], row[3])
-                        self.add_session(session)
+                        try:
+                            session = Session(row[0], row[1], row[2], row[3])
+                            self.add_session(session)
+                        except ValueError:
+                            print(f"Skipping invalid session data in row: {row}")
                                 
                 if not self.sessions:
                     print("No existing sessions found.")

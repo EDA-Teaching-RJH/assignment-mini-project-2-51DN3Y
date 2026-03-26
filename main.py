@@ -1,5 +1,5 @@
 from training_log import TrainingLog, Session
-import re
+import re, sys
 
 def display_menu():
     print("\n -- Rowing Training Log --")
@@ -13,6 +13,11 @@ def display_menu():
 def main():
     log = TrainingLog()
     log.load_from_csv("training_results.csv")
+
+    filename = "training_results.csv"
+    if len(sys.argv) > 1:
+        filename = sys.argv[1]
+        log.load_from_csv(filename)
 
     while True:
         display_menu()
