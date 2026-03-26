@@ -28,8 +28,16 @@ def main():
                 else:
                     print("Invalid date format. Please enter in DD/MM/YYYY format.")
             
-            distance = float(input("Enter distance (km): "))
-            
+            while True:
+                try:
+                    distance = float(input("Enter distance (km): "))
+                    if distance <= 0:
+                        print("Distance cannot be zero or negative. Please enter a valid distance.")
+                    else:
+                        break
+                except ValueError:
+                    print("Invalid input. Please enter a valid number for distance.")
+
             while True:
                 time = input("Enter time (mm:ss): ")
                 if re.match(r"^\d{1,2}:\d{2}$", time):
