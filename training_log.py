@@ -56,7 +56,8 @@ class TrainingLog:
             self.sessions = []
             with open(training_results, "r") as file:
                 reader = csv.reader(file)
-                next(reader) # Skip header
+                if not self.sessions:
+                    print("No existing sessions found.")
 
                 for row in reader:
                     if len(row) == 4:
