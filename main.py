@@ -1,4 +1,4 @@
-from training_log import TrainingLog, Session, RowingSession
+from training_log import TrainingLog, RowingSession
 import re, sys
 
 def display_menu():
