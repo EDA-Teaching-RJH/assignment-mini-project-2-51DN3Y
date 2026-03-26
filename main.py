@@ -1,4 +1,4 @@
-from training_log import TrainingLog, Session
+from training_log import TrainingLog, Session, RowingSession
 import re, sys
 
 def display_menu():
@@ -57,9 +57,20 @@ def main():
                     break
                 else:
                     print("Invalid time format. Please enter in mm:ss format.")
+            
+            while True:
+                stroke_rate_input = input("Enter stroke rate (spm, optional press ENTER to default (20spm)): ")
+                if stroke_rate_input == "":
+                    stroke_rate = 20
+                    break
+                try:
+                    stroke_rate = int(stroke_rate_input)
+                    break
+                except ValueError:
+                    print("Invalid stroke rate.")
 
             notes = input("Enter notes from session: ")
-            session = Session(date, distance, time, notes)
+            session = RowingSession(date, distance, time, notes, stroke_rate)
             log.add_session(session)
             print("Session Added!\n")
 

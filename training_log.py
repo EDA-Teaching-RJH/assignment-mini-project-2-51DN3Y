@@ -26,6 +26,9 @@ class RowingSession(Session):
         super().__init__(date, distance, time, notes)
         self.stroke_rate = stroke_rate
     
+    def to_list(self):
+        return [self.date, self.distance, self.time, self.notes, self.stroke_rate]
+
     def __str__(self):
         return super().__str__() + f", Stroke Rate: {self.stroke_rate} spm"
 
@@ -46,15 +49,13 @@ class TrainingLog:
     def save_to_csv(self, training_results):
         with open(training_results, "w", newline="") as file:
             writer = csv.writer(file)
-            writer.writerow(["Date", "Distance", "Time", "Notes"])
-
+            writer.writerow(["Date", "Distance", "Time", "Notes", "Stroke Rate"])
             for session in self.sessions:
                 writer.writerow(session.to_list())
     
     def search_sessions(self, keyword):
         pattern = re.compile(re.escape(keyword), re.IGNORECASE)
         results = []
-        
         for session in self.sessions:
             if pattern.search(session.notes or ""):
                 results.append(session)
@@ -68,9 +69,10 @@ class TrainingLog:
                 next(reader, None)
 
                 for row in reader:
-                    if len(row) == 4:
+                    if len(row) >= 4:
                         try:
-                            session = Session(row[0], row[1], row[2], row[3])
+                            stroke_rate = int(row[4]) if len(row) > 4 else 20       # Optional stroke rate, default to 20 if not provided
+                            session = RowingSession(row[0], row[1], row[2], row[3], stroke_rate)
                             self.add_session(session)
                         except ValueError:
                             print(f"Skipping invalid session data in row: {row}")
