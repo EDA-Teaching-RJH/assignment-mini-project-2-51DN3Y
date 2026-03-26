@@ -70,7 +70,7 @@ def main():
             sessions = log.get_all_sessions()
 
             for i in range (len(sessions)):
-                print(f"{i}:{sessions[i]}")
+                print(f"{i}: {sessions[i]}")
             
             index = int(input("Enter the index of the session to remove: "))
             log.remove_session(index)
