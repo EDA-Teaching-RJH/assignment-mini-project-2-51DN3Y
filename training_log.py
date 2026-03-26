@@ -10,6 +10,8 @@ class Session:
     def get_pace(self):
         minutes, seconds = map(int, self.time.split(":"))
         total_minutes = minutes + seconds /60
+        if self.distance == 0:
+            return None
         pace = total_minutes / self.distance
         return round(pace, 2)
     
