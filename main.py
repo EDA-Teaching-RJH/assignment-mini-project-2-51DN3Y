@@ -19,7 +19,7 @@ def main():
         choice = input("Enter valid option (1-5): ")
 
         if choice == "1":
-            print("---Add Session---")
+            print("\n---Add Session---")
             
             while True:
                 date = input("Enter date (DD/MM/YYYY): ")
@@ -52,7 +52,7 @@ def main():
             print("Session Added!\n")
 
         elif choice == "2":
-            print("---Remove session---")
+            print("\n---Remove session---")
             sessions = log.get_all_sessions()
 
             for i in range (len(sessions)):
@@ -63,7 +63,7 @@ def main():
             print("Session removed!\n")
 
         elif choice == "3":
-            print("---View sessions---")
+            print("\n---View sessions---")
             sessions = log.get_all_sessions()
             
             if not sessions:
@@ -73,7 +73,7 @@ def main():
                     print(session)
 
         elif choice == "4":
-            print("---Search sessions---")
+            print("\n---Search sessions---")
             keyword = input("Enter keyword to search: ")
             results = log.search_sessions(keyword)
 
@@ -84,7 +84,7 @@ def main():
                     print(session)
 
         elif choice == "5":
-            print("---Saving and exiting---")
+            print("\n---Saving and exiting---")
             log.save_to_csv("training_results.csv")
             print("Training log saved. Goodbye!")
             break
