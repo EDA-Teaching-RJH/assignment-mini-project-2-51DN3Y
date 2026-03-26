@@ -56,13 +56,12 @@ class TrainingLog:
             self.sessions = []
             with open(training_results, "r") as file:
                 reader = csv.reader(file)
-
                 next(reader) # Skip header
 
                 for row in reader:
                     if len(row) == 4:
                         session = Session(row[0], row[1], row[2], row[3])
                         self.add_session(session)
-                        
+
         except FileNotFoundError:
             print("No existing training log found.")
