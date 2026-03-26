@@ -27,9 +27,7 @@ def main():
     log = TrainingLog()
     if len(sys.argv) > 1:
         filename = sys.argv[1]
-        log.load_from_csv(filename)
-
-    log.load_from_csv("training_results.csv")
+    log.load_from_csv(filename)
 
     while True:
         display_menu()
