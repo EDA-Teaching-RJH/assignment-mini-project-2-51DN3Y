@@ -35,7 +35,7 @@ class TrainingLog:
         return self.sessions
     
     def save_to_csv(self, training_results):
-        with open(training_results, "w", newline='') as file:
+        with open(training_results, "a", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(["Date", "Distance", "Time", "Notes"])
 
@@ -56,6 +56,8 @@ class TrainingLog:
             self.sessions = []
             with open(training_results, "r") as file:
                 reader = csv.reader(file)
+                next(reader, None)
+                
                 if not self.sessions:
                     print("No existing sessions found.")
 
