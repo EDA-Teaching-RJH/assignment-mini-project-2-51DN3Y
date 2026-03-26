@@ -59,7 +59,6 @@ def main():
                     print("Invalid time format. Please enter in mm:ss format.")
 
             notes = input("Enter notes from session: ")
-
             session = Session(date, distance, time, notes)
             log.add_session(session)
             print("Session Added!\n")
@@ -67,10 +66,8 @@ def main():
         elif choice == "2":
             print("\n---Remove session---")
             sessions = log.get_all_sessions()
-
             for i in range (len(sessions)):
                 print(f"{i}: {sessions[i]}")
-            
             try:
                 index = int(input("Enter the index of the session to remove: "))
                 log.remove_session(index)
@@ -81,7 +78,6 @@ def main():
         elif choice == "3":
             print("\n---View sessions---")
             sessions = log.get_all_sessions()
-            
             if not sessions:
                 print("No sessions found!")
             else:
@@ -92,7 +88,6 @@ def main():
             print("\n---Search sessions---")
             keyword = input("Enter keyword to search: ")
             results = log.search_sessions(keyword)
-
             if not results:
                 print("No matching sessions found!")
             else:
