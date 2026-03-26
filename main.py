@@ -1,6 +1,7 @@
 '''
 Command Line Interface for recording rowing training sessions. 
-Handles user input, displays menu options, and interaction with the classes from training_log.py.
+Handles user input, displays menu options, interaction of the classes from training_log.py, 
+and read/writes training data to csv file.
 Author: Sidney Beacher, sb2435'''
 
 from training_log import TrainingLog, RowingSession
@@ -15,22 +16,34 @@ def display_menu():
     print("5. Save and Exit")
 
 def validate_date(date):
+    '''
+    Checks if the date is in the format DD/MM/YYYY using regex.
+    Does not check if the date is logically correct.'''
     return bool(re.match(r"^\d{2}/\d{2}/\d{4}$", date))
 
 def validate_time(time):
+    '''
+    Checks if the time is in the format mm:ss using regex.'''
     return bool(re.match(r"^\d{1,2}:\d{2}$", time))
 
 def validate_distance(distance):
+    '''
+    Ensures distance input is a positive number, including decimals.
+    Returns True if valid, False otherwise.'''
     try:
         distance = float(distance)
         return distance > 0
     except ValueError:
         return False
 
-def main():    
+def main():
+    '''
+    Main program loop that displays menu and handles/validates user input.
+    Performs actions such as adding, removing, viewing, and searching training sessions.
+    On exit, saves the training log to a csv file.'''    
     filename = "training_results.csv"
     log = TrainingLog()
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 1:   #if arguments provided, attempt to load from specified file
         filename = sys.argv[1]
     log.load_from_csv(filename)
 
@@ -74,17 +87,17 @@ def main():
                     print("Invalid stroke rate.")
 
             notes = input("Enter notes from session: ")
-            session = RowingSession(date, distance, time, notes, stroke_rate)
+            session = RowingSession(date, distance, time, notes, stroke_rate) #create session object and add to log
             log.add_session(session)
             print("Session Added!\n")
 
         elif choice == "2":
             print("\n---Remove session---")
             sessions = log.get_all_sessions()
-            if not sessions:
+            if not sessions:    #if no sessions, skip removal process and return to menu
                 print("No sessions to remove!")
                 continue
-            for i in range (len(sessions)):
+            for i in range (len(sessions)): #display sessions with index for user to select which to remove
                 print(f"{i}: {sessions[i]}")
     
             while True:
