@@ -1,3 +1,6 @@
+from training_log import TrainingLog, Session
+import csv
+
 def display_menu():
     print("\n -- Rowing Training Log --")
     print("1. Add session")
@@ -8,6 +11,8 @@ def display_menu():
 
 
 def main():
+    
+
     while True:
         display_menu()
         choice = input("Enter valid option (1-5): ")
