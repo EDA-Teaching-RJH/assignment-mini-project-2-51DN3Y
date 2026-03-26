@@ -17,4 +17,6 @@ def test_remove_session():
     log.remove_session(0)
     assert len(log.get_all_sessions()) == 0
 
-
+def test_invalid_session():
+    log = TrainingLog()
+    log.remove_session(5)
