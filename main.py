@@ -11,9 +11,11 @@ def display_menu():
 
 def validate_date(date):
     re.match(r"^\d{2}/\d{2}/\d{4}$", date)
+    return True
 
 def validate_time(time):
     re.match(r"^\d{1,2}:\d{2}$", time)
+    return True
 
 def validate_distance(distance):
     try:
