@@ -1,7 +1,4 @@
-Fix float distance issue
-Add validation for date and time, and km when entering distance (main.py inputs)
-Need to make sure csv isnt overwritten on each start
-Line 39 on training_log, not needed once fixed csv save issue
-Implement arg
+Implement arguments
+Create basic test file to demonstrate testing code
 Comments and Docstings (Last)
-Check code, pass through 
+Check code, pass through testing etc
