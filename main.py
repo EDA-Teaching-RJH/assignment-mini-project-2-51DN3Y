@@ -15,6 +15,13 @@ def validate_date(date):
 def validate_time(time):
     re.match(r"^\d{1,2}:\d{2}$", time)
 
+def validate_distance(distance):
+    try:
+        distance = float(distance)
+        return distance > 0
+    except ValueError:
+        return False
+
 def main():
     log = TrainingLog()
     log.load_from_csv("training_results.csv")
@@ -39,14 +46,11 @@ def main():
                     print("Invalid date format. Please enter in DD/MM/YYYY format.")
             
             while True:
-                try:
-                    distance = float(input("Enter distance (km): "))
-                    if distance <= 0:
-                        print("Distance cannot be zero or negative. Please enter a valid distance.")
-                    else:
-                        break
-                except ValueError:
-                    print("Invalid input. Please enter a valid number for distance.")
+                distance = float(input("Enter distance (km): "))
+                if validate_distance(distance):
+                    break
+                else:
+                    print("Distance must be a positive number.")
 
             while True:
                 time = input("Enter time (mm:ss): ")
