@@ -40,9 +40,16 @@ def main():
             log.remove_session(index)
             print("Session removed!\n")
 
-
         elif choice == "3":
-            print("Viewing sessions...")
+            print("---View sessions---")
+            sessions = log.get_all_sessions()
+            
+            if not sessions:
+                print("No sessions found!")
+            else:
+                for session in sessions:
+                    print(session)
+
         elif choice == "4":
             print("Searching sessions...")
         elif choice == "5":
