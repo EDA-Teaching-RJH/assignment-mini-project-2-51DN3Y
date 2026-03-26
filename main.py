@@ -19,7 +19,16 @@ def main():
         choice = input("Enter valid option (1-5): ")
 
         if choice == "1":
-            print("Adding session...")
+            print("---Add Session---")
+            date = input("Enter date (DD/MM/YYYY): ")
+            distance = float(input("Enter distance (km): "))
+            time = input("Enter time (mm:ss): ")
+            notes = input("Enter notes from session: ")
+
+            session = Session(date, distance, time, notes)
+            log.add_session(session)
+            print("Session Added!\n")
+
         elif choice == "2":
             print("Removing session...")
         elif choice == "3":
