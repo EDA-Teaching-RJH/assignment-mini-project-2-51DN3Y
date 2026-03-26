@@ -1,4 +1,5 @@
 from training_log import TrainingLog, Session
+import re
 
 def display_menu():
     print("\n -- Rowing Training Log --")
@@ -19,9 +20,23 @@ def main():
 
         if choice == "1":
             print("---Add Session---")
-            date = input("Enter date (DD/MM/YYYY): ")
+            
+            while True:
+                date = input("Enter date (DD/MM/YYYY): ")
+                if re.match(r"^\d{2}/\d{2}/\d{4}$", date):
+                    break
+                else:
+                    print("Invalid date format. Please enter in DD/MM/YYYY format.")
+            
             distance = float(input("Enter distance (km): "))
-            time = input("Enter time (mm:ss): ")
+            
+            while True:
+                time = input("Enter time (mm:ss): ")
+                if re.match(r"^\d{1,2}:\d{2}$", time):
+                    break
+                else:
+                    print("Invalid time format. Please enter in mm:ss format.")
+
             notes = input("Enter notes from session: ")
 
             session = Session(date, distance, time, notes)
