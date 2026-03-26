@@ -37,9 +37,10 @@ class TrainingLog:
     def save_to_csv(self, training_results):
         with open(training_results, "w", newline='') as file:
             writer = csv.writer(file)
+            writer.writerow(["Date", "Distance", "Time", "Notes"])
 
             for session in self.sessions:
-                writer.writerow([session.date, session.distance, session.time, session.notes])
+                writer.writerow([session.to_list()])
     
     def search_sessions(self, keyword):
         pattern = re.compile(re.escape(keyword), re.IGNORECASE)
@@ -55,9 +56,13 @@ class TrainingLog:
             self.sessions = []
             with open(training_results, "r") as file:
                 reader = csv.reader(file)
+
+                next(reader) # Skip header
+
                 for row in reader:
                     if len(row) == 4:
                         session = Session(row[0], row[1], row[2], row[3])
                         self.add_session(session)
+                        
         except FileNotFoundError:
             print("No existing training log found.")
