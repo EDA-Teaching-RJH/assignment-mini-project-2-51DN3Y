@@ -10,12 +10,10 @@ def display_menu():
     print("5. Save and Exit")
 
 def validate_date(date):
-    re.match(r"^\d{2}/\d{2}/\d{4}$", date)
-    return True
+    return bool(re.match(r"^\d{2}/\d{2}/\d{4}$", date))
 
 def validate_time(time):
-    re.match(r"^\d{1,2}:\d{2}$", time)
-    return True
+    return bool(re.match(r"^\d{1,2}:\d{2}$", time))
 
 def validate_distance(distance):
     try:
