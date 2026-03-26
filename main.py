@@ -62,8 +62,11 @@ def main():
                     print(session)
 
         elif choice == "5":
-            print("Saving and exiting...")
+            print("---Saving and exiting---")
+            log.save_to_csv("training_results.csv")
+            print("Training log saved. Goodbye!")
             break
+        
         else:
             print("Invalid option. Please enter a number between 1 and 5.")
             
