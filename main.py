@@ -46,8 +46,9 @@ def main():
                     print("Invalid date format. Please enter in DD/MM/YYYY format.")
             
             while True:
-                distance = float(input("Enter distance (km): "))
-                if validate_distance(distance):
+                distance_input = input("Enter distance (km): ")
+                if validate_distance(distance_input):
+                    distance = float(distance_input)
                     break
                 else:
                     print("Distance must be a positive number.")
