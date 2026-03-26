@@ -71,9 +71,12 @@ def main():
             for i in range (len(sessions)):
                 print(f"{i}: {sessions[i]}")
             
-            index = int(input("Enter the index of the session to remove: "))
-            log.remove_session(index)
-            print("Session removed!\n")
+            try:
+                index = int(input("Enter the index of the session to remove: "))
+                log.remove_session(index)
+                print("Session removed!\n")
+            except (ValueError, IndexError):
+                print("Invalid index. Please enter a valid session index.\n")
 
         elif choice == "3":
             print("\n---View sessions---")
