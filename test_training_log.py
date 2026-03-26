@@ -28,5 +28,5 @@ def test_zero_distance():
 
 def test_rowing_session():
     s = RowingSession("01/01/2022", 10, "50:00", "Test session", 25)
-    assert "22" in str(s)
+    assert "25" in str(s)
     assert "Stroke Rate" in str(s)
