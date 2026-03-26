@@ -22,14 +22,13 @@ def validate_distance(distance):
     except ValueError:
         return False
 
-def main():
-    log = TrainingLog()
-    log.load_from_csv("training_results.csv")
-    
+def main():    
     filename = "training_results.csv"
     if len(sys.argv) > 1:
         filename = sys.argv[1]
         log.load_from_csv(filename)
+    log = TrainingLog()
+    log.load_from_csv("training_results.csv")
 
     while True:
         display_menu()
@@ -37,7 +36,6 @@ def main():
 
         if choice == "1":
             print("\n---Add Session---")
-            
             while True:
                 date = input("Enter date (DD/MM/YYYY): ")
                 if validate_date(date):
