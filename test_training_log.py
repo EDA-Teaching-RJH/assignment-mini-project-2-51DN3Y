@@ -20,3 +20,7 @@ def test_remove_session():
 def test_invalid_session():
     log = TrainingLog()
     log.remove_session(5)
+
+def test_zero_distance():
+    s = Session("01/01/2022", 0, "50:00", "Test")
+    assert s.get_pace() is None
