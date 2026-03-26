@@ -76,7 +76,7 @@ def main():
                 log.remove_session(index)
                 print("Session removed!\n")
             except (ValueError, IndexError):
-                print("Invalid index. Please enter a valid session index.\n")
+                print("Invalid index. Please enter a valid session index.")
 
         elif choice == "3":
             print("\n---View sessions---")
