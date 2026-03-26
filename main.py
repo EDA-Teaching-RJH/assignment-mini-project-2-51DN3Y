@@ -86,7 +86,7 @@ def main():
         elif choice == "5":
             print("\n---Saving and exiting---")
             log.save_to_csv("training_results.csv")
-            print("Training log saved. Goodbye!")
+            print("Training log saved. Goodbye!\n")
             break
         
         else:
