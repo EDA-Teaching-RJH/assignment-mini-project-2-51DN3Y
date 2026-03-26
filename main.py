@@ -1,3 +1,8 @@
+'''
+Command Line Interface for recording rowing training sessions. 
+Handles user input, displays menu options, and interaction with the classes from training_log.py.
+Author: Sidney Beacher, sb2435'''
+
 from training_log import TrainingLog, RowingSession
 import re, sys
 
