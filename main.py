@@ -30,7 +30,17 @@ def main():
             print("Session Added!\n")
 
         elif choice == "2":
-            print("Removing session...")
+            print("---Remove session---")
+            sessions = log.get_all_sessions()
+
+            for i in range (len(sessions)):
+                print(f"{i}:{session}")
+            
+            index = int(input("Enter the index of the session to remove: "))
+            log.remove_session(index)
+            print("Session removed!\n")
+
+
         elif choice == "3":
             print("Viewing sessions...")
         elif choice == "4":
