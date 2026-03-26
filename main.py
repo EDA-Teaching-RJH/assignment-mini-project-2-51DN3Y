@@ -83,10 +83,9 @@ def main():
                 continue
             for i in range (len(sessions)):
                 print(f"{i}: {sessions[i]}")
-            
+    
             while True:
                 index_input = input("Enter the index of the session to remove: ")
-
                 if not index_input.isdigit():
                     print("Invalid input. Please enter a valid session index.")
                     continue
@@ -98,13 +97,6 @@ def main():
                 log.remove_session(index)
                 print("Session removed!\n")
                 break
-
-            #try:
-                #index = int(input("Enter the index of the session to remove: "))
-                #log.remove_session(index)
-                #print("Session removed!\n")
-            #except (ValueError, IndexError):
-                #print("Invalid index. Please enter a valid session index.")
 
         elif choice == "3":
             print("\n---View sessions---")
