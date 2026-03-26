@@ -1,5 +1,4 @@
 from training_log import TrainingLog, Session
-import csv
 
 def display_menu():
     print("\n -- Rowing Training Log --")

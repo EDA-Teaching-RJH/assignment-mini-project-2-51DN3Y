@@ -1,5 +1,4 @@
-import csv
-import re
+import csv, re
 
 class Session:
     def __init__ (self, date, distance, time, notes):
@@ -36,8 +35,12 @@ class TrainingLog:
     
     def save_to_csv(self, training_results):
         with open(training_results, "a", newline="") as file:
+            file.seek(0)
+            empty = file.read(1) == ""
             writer = csv.writer(file)
-            writer.writerow(["Date", "Distance", "Time", "Notes"])
+            
+            if empty:
+                writer.writerow(["Date", "Distance", "Time", "Notes"])
 
             for session in self.sessions:
                 writer.writerow([session.to_list()])
