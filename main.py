@@ -24,10 +24,11 @@ def validate_distance(distance):
 
 def main():    
     filename = "training_results.csv"
+    log = TrainingLog()
     if len(sys.argv) > 1:
         filename = sys.argv[1]
         log.load_from_csv(filename)
-    log = TrainingLog()
+
     log.load_from_csv("training_results.csv")
 
     while True:
