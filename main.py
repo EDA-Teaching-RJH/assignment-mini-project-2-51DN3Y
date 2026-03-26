@@ -11,7 +11,8 @@ def display_menu():
 
 
 def main():
-    
+    log = TrainingLog()
+    log.load_from_csv("training_results.csv")
 
     while True:
         display_menu()
