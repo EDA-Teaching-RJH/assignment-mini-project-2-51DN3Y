@@ -9,6 +9,10 @@ def display_menu():
     print("4. Search sessions")
     print("5. Save and Exit")
 
+def validate_date(date):
+    re.match(r"^\d{2}/\d{2}/\d{4}$", date)
+
+
 
 def main():
     log = TrainingLog()
@@ -28,7 +32,7 @@ def main():
             
             while True:
                 date = input("Enter date (DD/MM/YYYY): ")
-                if re.match(r"^\d{2}/\d{2}/\d{4}$", date):
+                if validate_date(date):
                     break
                 else:
                     print("Invalid date format. Please enter in DD/MM/YYYY format.")
