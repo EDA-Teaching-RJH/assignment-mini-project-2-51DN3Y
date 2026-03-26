@@ -51,7 +51,16 @@ def main():
                     print(session)
 
         elif choice == "4":
-            print("Searching sessions...")
+            print("---Search sessions---")
+            keyword = input("Enter keyword to search: ")
+            results = log.search_sessions(keyword)
+
+            if not results:
+                print("No matching sessions found!")
+            else:
+                for session in results:
+                    print(session)
+
         elif choice == "5":
             print("Saving and exiting...")
             break
