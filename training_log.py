@@ -21,6 +21,14 @@ class Session:
     def __str__(self):
         return f"Date: {self.date}, Distance: {self.distance} km, Time: {self.time}, Notes: {self.notes}, Pace: {self.get_pace()} min/km"
 
+class RowingSession(Session):
+    def __init__ (self, date, distance, time, notes, stroke_rate=20):
+        super().__init__(date, distance, time, notes)
+        self.stroke_rate = stroke_rate
+    
+    def __str__(self):
+        return super().__str__() + f", Stroke Rate: {self.stroke_rate} spm"
+
 class TrainingLog:
     def __init__(self):
         self.sessions = []
