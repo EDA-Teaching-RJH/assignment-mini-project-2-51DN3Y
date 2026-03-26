@@ -43,7 +43,7 @@ class TrainingLog:
                 writer.writerow(["Date", "Distance", "Time", "Notes"])
 
             for session in self.sessions:
-                writer.writerow([session.to_list()])
+                writer.writerow(session.to_list())
     
     def search_sessions(self, keyword):
         pattern = re.compile(re.escape(keyword), re.IGNORECASE)
