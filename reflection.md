@@ -29,7 +29,7 @@ Examples include:
 - Date format validation ('DD/MM/YYYY')
 - Time format validation ('MM:SS')
 
-Although the validation ensures the correct format is entered, a limitation is that it is not able to vallidate logical correctness e.g. checking that month value isn't greater than 12. Due to time constraints, I chose not to extend the validation further, but it is noted as a potential improvement. An alternative could be to use the python library datetime, over regex in this specific case.
+Although the validation ensures the correct format is entered, a limitation is that it is not able to validate logical correctness e.g. checking that the month value isn't greater than 12. Due to time constraints, I chose not to extend the validation further, but it is noted as a potential improvement. An alternative could be to use the python library datetime, over regex in this specific case.
 
 --
 
